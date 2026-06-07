@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { Container, Row } from "components/containers";
 import { ProfileInfo } from "./components/ProfileInfo";
-import { MyArticles } from "./components/MyArticles";
+import { AuthorArticles } from "./components/AuthorArticles";
 
 export const Profile: FC = () => {
   const { username } = useParams<{ username: string }>();
@@ -20,7 +20,7 @@ export const Profile: FC = () => {
 
       <Container isNeedRow={false}>
         <Row>
-          <MyArticles username={username} />
+          <AuthorArticles username={username} />
         </Row>
       </Container>
     </div>

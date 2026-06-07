@@ -4,11 +4,11 @@ import { useArticles } from "hooks/useArticles";
 
 import { ArticlePreview } from "pages/home/components/ArticlePreview";
 
-interface MyArticlesProps {
+interface AuthorArticlesProps {
   username: string;
 }
 
-export const MyArticles: FC<MyArticlesProps> = ({ username }) => {
+export const AuthorArticles: FC<AuthorArticlesProps> = ({ username }) => {
   const { data: articlesData, isLoading, isError } = useArticles({ author: username });
 
   return (

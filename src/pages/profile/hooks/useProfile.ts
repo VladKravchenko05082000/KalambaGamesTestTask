@@ -1,6 +1,6 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 
-import { getProfile } from "api/enpoints";
+import { getProfile } from "api/endpoints";
 import { Profile } from "lib/interfaces";
 import { profileKeys } from "lib/queryKeys";
 

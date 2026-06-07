@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient, QueryKey, UseMutationResult } from "@tanstack/react-query";
 
-import { favoriteArticle, unfavoriteArticle } from "api/enpoints";
+import { favoriteArticle, unfavoriteArticle } from "api/endpoints";
 
 import { articleKeys } from "lib/queryKeys";
 

@@ -1,6 +1,6 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 
-import { listArticles } from "api/enpoints";
+import { listArticles } from "api/endpoints";
 
 import { articleKeys } from "lib/queryKeys";
 

@@ -19,9 +19,23 @@ export const Login: FC = () => {
   const [submitting, setSubmitting] = useState(false);
 
   const extractErrors = (body: unknown): string[] => {
-    const errors = (body as { errors?: Record<string, string[]> } | null)?.errors;
-    if (!errors) return ["Login failed. Please try again."];
-    return Object.entries(errors).flatMap(([field, messages]) => messages.map(message => `${field} ${message}`));
+    if (typeof body !== "object" || body === null || !("errors" in body)) {
+      return ["Login failed. Please try again."];
+    }
+
+    const { errors } = body;
+
+    if (typeof errors !== "object" || errors === null) {
+      return ["Login failed. Please try again."];
+    }
+
+    return Object.entries(errors).flatMap(([field, messages]) => {
+      if (!Array.isArray(messages)) {
+        return [];
+      }
+
+      return messages.map(message => `${field} ${String(message)}`);
+    });
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {

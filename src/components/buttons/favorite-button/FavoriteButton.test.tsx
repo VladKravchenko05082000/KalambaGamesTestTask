@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { useAuth } from "context/AuthContext";
 
-import { favoriteArticle } from "api/enpoints";
+import { favoriteArticle } from "api/endpoints";
 
 import { FavoriteButton } from "./FavoriteButton";
 
@@ -12,7 +12,7 @@ import type { Article } from "lib/interfaces";
 
 const mockPush = jest.fn();
 
-jest.mock("api/enpoints");
+jest.mock("api/endpoints");
 jest.mock("context/AuthContext");
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),

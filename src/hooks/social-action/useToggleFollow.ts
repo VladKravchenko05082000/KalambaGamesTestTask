@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient, QueryKey, UseMutationResult } from "@tanstack/react-query";
 
-import { followProfile, unfollowProfile } from "api/enpoints";
+import { followProfile, unfollowProfile } from "api/endpoints";
 
 import { profileKeys, articleKeys } from "lib/queryKeys";
 

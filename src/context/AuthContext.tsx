@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useReducer } from "react";
 import type { FC, ReactNode } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
-import { getCurrentUser, login as loginRequest } from "api/enpoints";
+import { getCurrentUser, login as loginRequest } from "api/endpoints";
 
 import { authStore } from "store/authStore";
 

@@ -1,14 +1,19 @@
 import { ArticlesQuery } from "lib/types";
 
 export const articleKeys = {
-  root: ["articles"] as const,
-  allLists: () => [...articleKeys.root, "list"] as const,
-  list: (params: ArticlesQuery) => [...articleKeys.allLists(), params] as const,
-  allDetails: () => [...articleKeys.root, "detail"] as const,
-  bySlug: (slug: string) => [...articleKeys.allDetails(), slug] as const,
+  root: ["articles"],
+
+  allLists: (): string[] => [...articleKeys.root, "list"],
+
+  list: (params: ArticlesQuery): (string | ArticlesQuery)[] => [...articleKeys.allLists(), params],
+
+  allDetails: (): string[] => [...articleKeys.root, "detail"],
+
+  bySlug: (slug: string): string[] => [...articleKeys.allDetails(), slug],
 };
 
 export const profileKeys = {
-  root: ["profiles"] as const,
-  byUsername: (username: string) => [...profileKeys.root, "detail", username] as const,
+  root: ["profiles"],
+
+  byUsername: (username: string): string[] => [...profileKeys.root, "detail", username],
 };
