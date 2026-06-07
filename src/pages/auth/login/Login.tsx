@@ -5,7 +5,8 @@ import { useHistory } from "react-router-dom";
 import { useAuth } from "context/AuthContext";
 import { ApiError } from "lib/api-errors";
 
-import { LoginForm, LoginFormHeader } from "./components";
+import { LoginForm } from "./components/LoginForm";
+import { LoginFormHeader } from "./components/LoginFormHeader";
 import { Container } from "components/containers";
 
 export const Login: FC = () => {

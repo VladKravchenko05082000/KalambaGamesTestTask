@@ -1,7 +1,8 @@
 import { api } from "api/http-client";
 
-import { ArticleResponse, ArticlesQuery, ArticlesResponse } from "./types";
+import { ArticleResponse } from "./types";
 import { Article } from "lib/interfaces";
+import { ArticlesQuery, ArticlesResponse } from "lib/types";
 
 export async function listArticles(params: ArticlesQuery = {}): Promise<ArticlesResponse> {
   const { data } = await api.get<ArticlesResponse>("/articles", { params });
