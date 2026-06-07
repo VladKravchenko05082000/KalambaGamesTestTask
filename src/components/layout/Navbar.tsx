@@ -2,8 +2,7 @@ import type { FC } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import { useAuth } from "context/AuthContext";
-
-const DEFAULT_AVATAR = "https://static.productionready.io/images/smiley-cyrus.jpg";
+import { Avatar } from "components/avatar";
 
 export const Navbar: FC = () => {
   const { status, user } = useAuth();
@@ -37,7 +36,7 @@ export const Navbar: FC = () => {
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" activeClassName="active" to={`/profile/${user.username}`}>
-                  <img className="user-pic" src={user.image || DEFAULT_AVATAR} alt={user.username} />
+                  <Avatar src={user.image} className="user-pic" alt={user.username} />
                   {user.username}
                 </NavLink>
               </li>

@@ -1,2 +1,2 @@
-export { FavoriteButton } from "./FavoriteButton";
-export { FollowButton } from "./FollowButton";
+export { FavoriteButton } from "./favorite-button/FavoriteButton";
+export { FollowButton } from "./follow-button/FollowButton";

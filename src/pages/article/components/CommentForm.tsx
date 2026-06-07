@@ -1,14 +1,14 @@
-import { useState } from "react";
 import type { FC, FormEvent } from "react";
+import { useState } from "react";
 
-const DEFAULT_AVATAR = "https://static.productionready.io/images/smiley-cyrus.jpg";
+import { useAuth } from "context/AuthContext";
 
-interface CommentFormProps {
-  authorImage?: string;
-}
+import { Avatar } from "components/avatar";
 
-export const CommentForm: FC<CommentFormProps> = ({ authorImage = DEFAULT_AVATAR }) => {
+export const CommentForm: FC = () => {
   const [comment, setComment] = useState("");
+
+  const { user } = useAuth();
 
   const onTextAreaChange = (value: string) => {
     setComment(value);
@@ -38,7 +38,7 @@ export const CommentForm: FC<CommentFormProps> = ({ authorImage = DEFAULT_AVATAR
       </div>
 
       <div className="card-footer">
-        <img src={authorImage} className="comment-author-img" alt="" />
+        <Avatar src={user?.image} className="comment-author-img" alt={user?.username} />
         <button type="submit" className="btn btn-sm btn-primary" disabled={!comment.trim()}>
           Post Comment
         </button>

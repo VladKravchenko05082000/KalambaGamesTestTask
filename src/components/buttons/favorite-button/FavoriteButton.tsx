@@ -2,7 +2,7 @@ import type { FC } from "react";
 import { useHistory } from "react-router-dom";
 
 import { useAuth } from "context/AuthContext";
-import { useToggleFavorite } from "hooks/social-action/useToggleFavorite";
+import { useToggleFavorite } from "hooks/social-action";
 
 import { Article } from "lib/interfaces";
 

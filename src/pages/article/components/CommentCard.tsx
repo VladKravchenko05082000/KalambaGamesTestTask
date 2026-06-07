@@ -1,7 +1,6 @@
+import { Avatar } from "components/avatar";
 import type { FC } from "react";
 import { Link } from "react-router-dom";
-
-const DEFAULT_AVATAR = "https://static.productionready.io/images/smiley-cyrus.jpg";
 
 interface CommentCardProps {
   body: string;
@@ -11,20 +10,14 @@ interface CommentCardProps {
   canModify?: boolean;
 }
 
-export const CommentCard: FC<CommentCardProps> = ({
-  body,
-  authorUsername,
-  authorImage = DEFAULT_AVATAR,
-  date,
-  canModify = false,
-}) => (
+export const CommentCard: FC<CommentCardProps> = ({ body, authorUsername, authorImage, date, canModify = false }) => (
   <div className="card">
     <div className="card-block">
       <p className="card-text">{body}</p>
     </div>
     <div className="card-footer">
       <Link to={`/profile/${authorUsername}`} className="comment-author">
-        <img src={authorImage} className="comment-author-img" alt={authorUsername} />
+        <Avatar src={authorImage} className="comment-author-img" alt={authorUsername} />
       </Link>
       &nbsp;
       <Link to={`/profile/${authorUsername}`} className="comment-author">

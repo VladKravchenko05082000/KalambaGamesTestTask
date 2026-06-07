@@ -7,10 +7,8 @@ import { Login, Logout } from "pages/auth";
 import { Home } from "./pages/home";
 import { Article } from "pages/article";
 import { Profile } from "pages/profile";
-
-import Editor from "./pages/Editor";
-
-import Settings from "./pages/Settings";
+import { Editor } from "pages/editor";
+import { Settings } from "pages/settings";
 
 export const App: FC = () => {
   return (

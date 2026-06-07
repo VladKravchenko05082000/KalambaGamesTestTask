@@ -3,8 +3,7 @@ import type { FC } from "react";
 import { useProfile } from "../hooks/useProfile";
 
 import { FollowButton } from "components/buttons";
-
-const DEFAULT_AVATAR = "https://static.productionready.io/images/smiley-cyrus.jpg";
+import { Avatar } from "components/avatar";
 
 interface ProfileInfoProps {
   username: string;
@@ -21,7 +20,7 @@ export const ProfileInfo: FC<ProfileInfoProps> = ({ username }) => {
         "Failed to load profile."
       ) : (
         <>
-          <img src={profile.image || DEFAULT_AVATAR} className="user-img" alt={profile.username} />
+          <Avatar src={profile.image} alt={profile.username} />
           <h4>{profile.username}</h4>
           {profile.bio && <p>{profile.bio}</p>}
           <FollowButton profile={profile} className="action-btn" />

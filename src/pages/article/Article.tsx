@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 
 import { useArticle } from "pages/article/hooks/useArticle";
 
-import { ArticleMeta } from "./components/ArticleMeta";
 import { CommentForm } from "./components/CommentForm";
 import { CommentCard } from "./components/CommentCard";
+import { ArticleMeta } from "components/article-meta";
 import { Container, Row } from "components/containers";
 import { Banner } from "components/banner";
 
