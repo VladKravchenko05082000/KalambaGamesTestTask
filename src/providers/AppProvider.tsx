@@ -1,7 +1,7 @@
-import { AuthProvider } from "context/AuthContext";
+import type { FC, ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import type { FC, ReactNode } from "react";
+import { AuthProvider } from "context/AuthContext";
 
 interface ProviderProps {
   children: ReactNode;

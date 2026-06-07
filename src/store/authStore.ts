@@ -1,16 +1,5 @@
 const TOKEN_KEY = "token";
 
-/**
- * Token store — simple wrapper around localStorage for auth token management.
- *
- * NOTE: This is a simplified imitation of a token store.
- * In a real application the logic would be much more complex:
- * - Integration with state management (Redux, Zustand, etc.)
- * - Refresh token handling
- * - Automatic token refresh
- * - Error handling and logout flows
- * - Possibly context/provider pattern
- */
 export const authStore = {
   readToken(): string | null {
     return localStorage.getItem(TOKEN_KEY);

@@ -1,31 +1,35 @@
-import React from "react";
+import { FC } from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
-import Article from "./Article";
-import ArticleList from "./ArticleList";
-import Editor from "./Editor";
-import LoginRegister from "./LoginRegister";
-import Logout from "./Logout";
-import Profile from "./Profile";
-import Settings from "./Settings";
+import { Layout } from "components/layout";
 
-function App() {
+import { Login, Logout } from "pages/auth";
+import { Home } from "./pages/home";
+
+import Article from "./pages/Article";
+
+import Editor from "./pages/Editor";
+
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+
+export const App: FC = () => {
   return (
     <Router>
-      <Switch>
-        <Route path="/editor" exact component={Editor} />
-        <Route path="/editor/:slug" exact component={Editor} />
-        <Route path="/login" exact component={LoginRegister} />
-        <Route path="/logout" exact component={Logout} />
-        <Route path="/profile/:username" exact component={Profile} />
-        <Route path="/profile/:username/favorites" exact component={Profile} />
-        <Route path="/register" exact component={LoginRegister} />
-        <Route path="/settings" exact component={Settings} />
-        <Route path="/:slug" exact component={Article} />
-        <Route path="/" component={ArticleList} />
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route path="/editor" exact component={Editor} />
+          <Route path="/editor/:slug" exact component={Editor} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/logout" exact component={Logout} />
+          <Route path="/profile/:username" exact component={Profile} />
+          <Route path="/profile/:username/favorites" exact component={Profile} />
+          <Route path="/register" exact component={Login} />
+          <Route path="/settings" exact component={Settings} />
+          <Route path="/:slug" exact component={Article} />
+          <Route path="/" component={Home} />
+        </Switch>
+      </Layout>
     </Router>
   );
-}
-
-export default App;
+};

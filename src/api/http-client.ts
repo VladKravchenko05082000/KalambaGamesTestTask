@@ -1,15 +1,11 @@
 import axios, { AxiosError } from "axios";
+
+import { ApiError } from "lib/api-errors";
+
 import { authStore } from "store/authStore";
 
 const API_BASE = process.env.REACT_APP_API_URL ?? "http://localhost:3000/api";
 const AUTH_SCHEME = "Token";
-
-export class ApiError extends Error {
-  constructor(public status: number, public body: unknown) {
-    super(`API request failed with status ${status}`);
-    this.name = "ApiError";
-  }
-}
 
 export const api = axios.create({
   baseURL: API_BASE,
