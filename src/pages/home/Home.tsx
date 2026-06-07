@@ -1,5 +1,6 @@
 import type { FC } from "react";
-import { useArticles } from "./hooks/useArticles";
+
+import { useArticles } from "hooks/useArticles";
 
 import { ArticlePreview } from "./components/ArticlePreview";
 import { FeedToggle } from "./components/FeedToggle";
@@ -8,7 +9,7 @@ import { Banner } from "components/banner";
 import { Container } from "components/containers";
 
 export const Home: FC = () => {
-  const { data, isLoading, isError } = useArticles();
+  const { data: articlesData, isLoading, isError } = useArticles();
 
   return (
     <div className="home-page">
@@ -25,9 +26,11 @@ export const Home: FC = () => {
 
           {isError && <div className="article-preview">Failed to load articles.</div>}
 
-          {data && data.articles.length === 0 && <div className="article-preview">No articles are here... yet.</div>}
+          {articlesData && articlesData.articles.length === 0 && (
+            <div className="article-preview">No articles are here... yet.</div>
+          )}
 
-          {data?.articles.map(article => (
+          {articlesData?.articles.map(article => (
             <ArticlePreview key={article.slug} article={article} />
           ))}
         </div>

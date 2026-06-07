@@ -5,12 +5,11 @@ import { Layout } from "components/layout";
 
 import { Login, Logout } from "pages/auth";
 import { Home } from "./pages/home";
-
-import Article from "./pages/Article";
+import { Article } from "pages/article";
+import { Profile } from "pages/profile";
 
 import Editor from "./pages/Editor";
 
-import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 
 export const App: FC = () => {

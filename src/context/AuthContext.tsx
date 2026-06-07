@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import type { FC, ReactNode } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 
 import { getCurrentUser, login as loginRequest } from "api/enpoints";
 
@@ -33,6 +34,7 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
+  const queryClient = useQueryClient();
   const [state, dispatch] = useReducer(reducer, {
     status: "loading",
     user: null,
@@ -55,11 +57,13 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     const user = await loginRequest(credentials);
     authStore.saveToken(user.token);
     dispatch({ type: "LOGGED_IN", user });
+    queryClient.invalidateQueries();
   };
 
   const logout = (): void => {
     authStore.removeToken();
     dispatch({ type: "LOGGED_OUT" });
+    queryClient.clear();
   };
 
   return <AuthContext.Provider value={{ ...state, login, logout }}>{children}</AuthContext.Provider>;

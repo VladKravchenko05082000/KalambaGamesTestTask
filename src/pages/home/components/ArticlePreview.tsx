@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
 import { Article } from "lib/interfaces";
+import { FavoriteButton } from "components/buttons";
 
 const DEFAULT_AVATAR = "https://static.productionready.io/images/smiley-cyrus.jpg";
 
@@ -26,13 +27,7 @@ export const ArticlePreview: FC<ArticlePreviewProps> = ({ article }) => {
           <span className="date">{format(new Date(article.createdAt), "MMMM d, yyyy")}</span>
         </div>
 
-        <button
-          className={`btn btn-sm pull-xs-right ${article.favorited ? "btn-primary" : "btn-outline-primary"}`}
-          type="button"
-          disabled
-        >
-          <i className="ion-heart" /> {article.favoritesCount}
-        </button>
+        <FavoriteButton article={article} compact />
       </div>
       <Link to={`/${article.slug}`} className="preview-link">
         <h1>{article.title}</h1>
