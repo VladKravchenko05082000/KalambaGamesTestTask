@@ -30,6 +30,7 @@ docker-compose down --remove-orphans           # tear down
 **2a. Frontend via Docker** (how reviewers run it; backend must be running):
 
 ```bash
+npm install
 docker build -t job-assignment-frontend-engineer .
 docker run --rm -p 8080:80 job-assignment-frontend-engineer   # http://localhost:8080
 ```
@@ -37,7 +38,6 @@ docker run --rm -p 8080:80 job-assignment-frontend-engineer   # http://localhost
 **2b. Frontend dev server:**
 
 ```bash
-npm install
 npm start   # http://localhost:8080 (PORT=8080 in .env — no clash with the API on 3000)
 ```
 
